@@ -1,0 +1,79 @@
+{
+    "log": {
+        "loglevel": "info"
+    },
+    "routing": {
+        "domainStrategy": "AsIs",
+        "rules": [
+            {
+                "type": "field",
+                "ip": [
+                    "geoip:private"
+                ],
+                "outboundTag": "block"
+            }
+        ]
+    },
+    "inbounds": [
+    {
+      "listen": "0.0.0.0",
+      "port": 443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "uuuuid"
+          }
+        ],
+        "decryption": "none",
+        "fallbacks": []
+      },
+      "sniffing": {
+        "destOverride": [
+          "http",
+          "tls",
+          "quic",
+          "fakedns"
+        ],
+        "enabled": true
+      },
+      "streamSettings": {
+"network": "tcp",
+        "realitySettings": {
+          "dest": "whatsapp.com:443",
+          "maxClient": "",
+          "maxTimediff": 0,
+          "minClient": "",
+          "privateKey": "pprivkey",
+          "serverNames": [
+            "whatsapp.com",
+            "web.whatsapp.com"
+          ],
+          "shortIds": [
+            "ssid"
+          ],
+          "show": false,
+          "xver": 0
+        },
+        "security": "reality",
+        "tcpSettings": {
+          "acceptProxyProtocol": false,
+          "header": {
+            "type": "none"
+          }
+        }
+      },
+      "tag": "inbound-443"
+    }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "block"
+        }
+    ]
+}
