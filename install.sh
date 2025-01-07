@@ -25,12 +25,13 @@ sed -i "s/ssid/$random_hex/g" config.json
 sed -i "s/ssid/$random_hex/g" client_config.json
 sed -i "s/uuuuid/$uuuid/g" client_config.json
 sed -i "s/ipaddr/$ip/g" client_config.json
+sed -i "s/ppubkey/$pubkey/g" client_config.json
 
 echo 'Files config.json and client_config.json is changed by your settings. Original files saved with .original postfix.'
 
 cp config.json /usr/local/etc/xray/config.json
 systemctl restart xray
-link='vless://'$uuuid'@'$ip':443?security=reality&sni=github.com&fp=chrome&pbk='$pubkey'&sid='$random_hex'&type=tcp&encryption=none#Reality'
+link='vless://'$uuuid'@'$ip':443?security=reality&sni=images.apple.com&fp=chrome&pbk='$pubkey'&sid='$random_hex'&type=tcp&flow=xtls-rprx-vision&encryption=none#Reality'
 echo "Your client link and QR-code "
 echo $link
 qrencode -t ANSIUTF8 $link

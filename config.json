@@ -38,7 +38,8 @@
       "settings": {
         "clients": [
           {
-            "id": "uuuuid"
+            "id": "uuuuid",
+            "flow":"xtls-rprx-vision"
           }
         ],
         "decryption": "none",
@@ -56,14 +57,14 @@
       "streamSettings": {
 "network": "tcp",
         "realitySettings": {
-          "dest": "github.com:443",
+          "dest": "images.apple.com:443",
           "maxClient": "",
           "maxTimediff": 0,
           "minClient": "",
           "privateKey": "pprivkey",
           "serverNames": [
-            "gist.github.com",
-            "github.com"
+            
+            "images.apple.com"
           ],
           "shortIds": [
             "ssid"
