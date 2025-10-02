@@ -7,7 +7,7 @@ fi
 apt-get update
 echo "Installing requirements. "
 apt-get install -y curl qrencode
-bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install
+bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --version v24.12.18
 ip=$(curl http://ifconfig.me)
 uuuid=$(cat /proc/sys/kernel/random/uuid)
 random_hex=$(cat /dev/urandom | tr -dc 'a-f0-9' | head -c 8)
